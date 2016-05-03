@@ -256,14 +256,15 @@ public class PDFView extends SurfaceView {
 	void showPage(int pageNb) {
 		state = State.SHOWN;
 
+		// Check the page number and makes the
+		// difference between UserPages and DocumentPages
+		pageNb = determineValidPageNumberFrom(pageNb);
+
 		// Update the page dimensions if they could change first
 		if (useChangingPageDimensions) {
 			setupPageDimensions(pageNb);
 		}
 
-		// Check the page number and makes the
-		// difference between UserPages and DocumentPages
-		pageNb = determineValidPageNumberFrom(pageNb);
 		currentPage = pageNb;
 		currentFilteredPage = pageNb;
 		if (filteredUserPageIndexes != null) {
