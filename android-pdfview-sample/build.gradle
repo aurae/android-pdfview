@@ -1,14 +1,15 @@
-apply plugin: 'android'
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
 
 description = 'android-pdfview-sample'
 
 android {
-    compileSdkVersion 19
-    buildToolsVersion "19.0.3"
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
 
     defaultConfig {
         minSdkVersion 8
-        targetSdkVersion 19
+        targetSdkVersion 23
         versionCode 2
         versionName "1.0.1"
     }
@@ -27,7 +28,7 @@ android {
 
 dependencies {
     compile project(':android-pdfview')
-    provided 'com.googlecode.androidannotations:androidannotations:2.7.1'
+    apt 'com.googlecode.androidannotations:androidannotations:2.7.1'
     compile 'com.googlecode.androidannotations:androidannotations-api:2.7.1'
     compile 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
 }
