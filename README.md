@@ -1,26 +1,21 @@
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-android--pdfview-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/1332)
+**Android PDFView** is a library by Joan Zapata which provides a fast PDFView component for Android, with ```animations```, ```gestures```, and ```zoom```. It's based on [VuDroid](https://code.google.com/p/vudroid/) for decoding the PDF file.
 
-[![Screenshot of the sample app](https://raw.github.com/JoanZapata/android-pdfview/master/device.png)](https://play.google.com/store/apps/details?id=com.joanzapata.pdfview.sample)
-
-**Android PDFView** is a library which provides a fast PDFView component for Android, with ```animations```, ```gestures```, and ```zoom```. It's based on [VuDroid](https://code.google.com/p/vudroid/) for decoding the PDF file.
+This fork adds some functionality. [Click here](https://github.com/JoanZapata/android-pdfview) to be redirected to Joan's main repository.
 
 # Get it
 
-Android PDFView is **available in Maven Central**.
+Get it with Jitpack:
 
-```xml
-<dependency>
-	<groupId>com.joanzapata.pdfview</groupId>
-	<artifactId>android-pdfview</artifactId>
-	<version>1.0.4</version>
-	<type>apklib</type>
-</dependency>
-```
+```groovy
+allprojects {
+	repositories {
+		maven { url "https://jitpack.io" }
+	}
+}
 
-Or via gradle:
-
-```
-compile 'com.joanzapata.pdfview:android-pdfview:1.0.4@aar'
+dependencies {
+	compile "com.github.aurae:android-pdfview:-SNAPSHOT"
+}
 ```
 
 # Include PDFView in your layout
@@ -40,6 +35,7 @@ pdfView.fromAsset(pdfName)
     .defaultPage(1)
     .showMinimap(false)
     .enableSwipe(true)
+    .useChangingPageDimensions(false)
     .onDraw(onDrawListener)
     .onLoad(onLoadCompleteListener)
     .onPageChange(onPageChangeListener)
@@ -47,6 +43,7 @@ pdfView.fromAsset(pdfName)
 ```
 
 * ```pages``` is optional, it allows you to filter and order the pages of the PDF as you need
+* ```useChangingPageDimensions``` is optional, it allows you to load PDF files containing pages with differing dimensions
 * ```onDraw``` is also optional, and allows you to draw something on a provided canvas, above the current page
 
 # License
